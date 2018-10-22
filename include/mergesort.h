@@ -10,9 +10,16 @@ namespace edu { namespace vcccd { namespace vc { namespace csv15 {
 
                 template<typename>
                 void mergesort(T array[], size_t size) {
-                    // put your code here
+
+
                 }
 
+                template<typename>
+                void partition(T array[], int left, int right){
+                    int m = (left + right)/2;
+
+                    if(left<right)
+                }
             }}}}
-            
+
 #endif //EX04_MERGESORT_MERGESORT_H
