@@ -11,3 +11,10 @@
 
 #include"mergesort.h"
 #include<iostream>
+#include<string>
+
+int main(){
+
+    int array[] = {1,3,2,7,4,10};
+    void partition(array,0,5);
+}
