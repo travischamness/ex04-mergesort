@@ -15,6 +15,6 @@
 
 int main(){
 
-    int array[] = {1,3,2,7,4,10};
+    int64_t array[] = {1,3,2,7,4,10};
     void partition(array,0,5);
 }
