@@ -10,14 +10,13 @@ using std::size_t;
 namespace edu { namespace vcccd { namespace vc { namespace csv15 {
 
                 template<typename T>
-                void merge(T array[], T _start, T halfpoint, T _end){
+                void merge(T array[], uint64_t _start, uint64_t halfpoint, uint64_t _end){
                     uint64_t L = _start; //starter index of Left side
                     uint64_t R = halfpoint + 1; //starter index of Right side
 
-
                     T newSize = (R - L) + 1; //Details the full size of the new array
                     int mergeIndex = 0; //Initialized index of merged element
-                    T mergedValues[] = new int [mergeIndex]; //iterator position 0
+                    T *mergedValues = new T [newSize]; //= [mergeIndex]; //iterator position 0
 
                     while(L <= halfpoint && R <= _end){
                         if(array[L] <= array[R]){//organizing new heap array in order from least to greatest
@@ -56,6 +55,7 @@ namespace edu { namespace vcccd { namespace vc { namespace csv15 {
                     if ( _end > _start ){
                         _mergesort(array, _start, halfpoint);
                         _mergesort(array, halfpoint + 1, _end);
+
                         merge(array, _start, halfpoint, _end);
                     }
 
