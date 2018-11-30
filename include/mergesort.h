@@ -14,11 +14,11 @@ namespace edu { namespace vcccd { namespace vc { namespace csv15 {
                     uint64_t L = _start; //starter index of Left side
                     uint64_t R = halfpoint + 1; //starter index of Right side
 
-                    T newSize = (R - L) + 1; //Details the full size of the new array
+                    size_t newSize = ((_end - _start) + 1); //Details the full size of the new array
                     int mergeIndex = 0; //Initialized index of merged element
-                    T *mergedValues = new T [newSize]; //= [mergeIndex]; //iterator position 0
+                    T *mergedValues = new T [newSize];
 
-                    while(L <= halfpoint && R <= _end){
+                    while((L <= halfpoint) && (R <= _end)){
                         if(array[L] <= array[R]){//organizing new heap array in order from least to greatest
                             mergedValues[mergeIndex] = array[L];
                             L++;
@@ -41,18 +41,20 @@ namespace edu { namespace vcccd { namespace vc { namespace csv15 {
                         R++;
                         mergeIndex++;
                     }
-                    for(mergeIndex = 0; mergeIndex <= _end-1; mergeIndex++){ //Copying the sorted indecies in the temporary array
-                        array[mergeIndex] = mergedValues[mergeIndex];
+                    for(mergeIndex = 0; mergeIndex <= _end; mergeIndex++){ //Copying the sorted indecies in the temporary array
+                        array[_start + mergeIndex] = mergedValues[mergeIndex];
                     }
+                    delete [] mergedValues;
                 }
 
                 template<typename T>
                 void _mergesort(T array[], uint64_t _start, uint64_t _end){
-//                    uint64_t _start = _start;
-//                    uint64_t _end =  _end ;
-                    uint64_t halfpoint = _start + (_start + _end)/2;
+
+
+//                    uint64_t halfpoint = _start + ((_start + _end)/2);
 
                     if ( _end > _start ){
+                        uint64_t halfpoint = _start + ((_end - _start)/2);
                         _mergesort(array, _start, halfpoint);
                         _mergesort(array, halfpoint + 1, _end);
 
@@ -63,6 +65,7 @@ namespace edu { namespace vcccd { namespace vc { namespace csv15 {
 
                 template<typename T>
                 void mergesort(T array[], size_t size) {
+
                     uint64_t _start = 0;
                     uint64_t _end = size - 1;
 
