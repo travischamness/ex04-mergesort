@@ -50,9 +50,6 @@ namespace edu { namespace vcccd { namespace vc { namespace csv15 {
                 template<typename T>
                 void _mergesort(T array[], uint64_t _start, uint64_t _end){
 
-
-//                    uint64_t halfpoint = _start + ((_start + _end)/2);
-
                     if ( _end > _start ){
                         uint64_t halfpoint = _start + ((_end - _start)/2);
                         _mergesort(array, _start, halfpoint);
