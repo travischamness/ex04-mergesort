@@ -1,7 +1,7 @@
 //
 // Created by Travis on 10/8/2018.
 //
-
+//Line 45 SegFault
 #ifndef EX04_MERGESORT_MERGESORT_H
 #define EX04_MERGESORT_MERGESORT_H
 #include <cstdint>
