@@ -5,7 +5,8 @@
 #ifndef EX04_MERGESORT_MERGESORT_H
 #define EX04_MERGESORT_MERGESORT_H
 #include <cstdint>
-
+#include <iostream>
+#include<string>
 using std::size_t;
 
 namespace edu { namespace vcccd { namespace vc { namespace csv15 {
@@ -14,9 +15,8 @@ namespace edu { namespace vcccd { namespace vc { namespace csv15 {
                 void merge(T array[], uint64_t _start, uint64_t halfpoint, uint64_t _end){
                     uint64_t L = _start; //Left step - Starts at array[0]
                     uint64_t R = halfpoint + 1; //Right step - Starts at array[half + 1]
-
                     uint64_t newSize = ((_end - _start) + 1); // Evaluates the new size of portion
-                    int mergeIndex = 0; //Initialized index of merged element
+                    uint64_t mergeIndex = 0; //Initialized index of merged element
                     T *mergedValues = new T [newSize];
 
                     while((L <= halfpoint) && (R <= _end)){
@@ -37,14 +37,14 @@ namespace edu { namespace vcccd { namespace vc { namespace csv15 {
                         L++;
                         mergeIndex++;
                     }
-                    while(R < _end){//Case where right set is larger than left set
+                    while(R <= _end){//Case where right set is larger than left set
                         mergedValues[mergeIndex] = array[R];
                         R++;
                         mergeIndex++;
                     }
-                    for(mergeIndex; mergeIndex < _end; mergeIndex++){ //Copying the sorted indecies in the temporary array
-                        array[mergeIndex] = mergedValues[mergeIndex];
-                        //std::cout <<
+                    for(mergeIndex = 0; mergeIndex < (_end-1); mergeIndex++){ //Copying the sorted indecies in the temporary array
+                        array[_start + mergeIndex] = mergedValues[mergeIndex];
+                        //std::cout << array[mergeIndex] << std::endl;
                     }
                     delete [] mergedValues;
                 }
