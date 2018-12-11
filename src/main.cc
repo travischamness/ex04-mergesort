@@ -16,9 +16,9 @@ using std::endl;
 using std::cout;
 int main(){
 
-    int64_t array[] = {1,3,2,7,4,10};
-    int64_t size = 6;
-    edu::vcccd::vc::csv15::mergesort(array, 6);
+    int64_t array[] = {1,3,2,7,4,10,9,8};
+    size_t size = 8;
+    edu::vcccd::vc::csv15::mergesort(array, size);
 
     for(int i = 0; i < size; i++){
         cout << array[i] << endl;
